@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="HIPAA-Compliant Call Tracking" description="Know which marketing efforts drive real dental appointments with HIPAA-compliant call tracking — powered by CallOwl, by PPC Dentist.">
+
+  <section class="bg-brand-slate py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <p class="text-brand-teal text-xs font-semibold tracking-widest uppercase mb-3">Is Your Marketing Making Money?</p>
+      <h1 class="font-display text-4xl lg:text-5xl font-800 text-white max-w-2xl">HIPAA-Compliant Call Tracking for Dentists</h1>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+        <div class="space-y-6 text-gray-600 leading-relaxed">
+          <p class="text-lg">Without HIPAA-compliant call tracking, you have no way of knowing if your marketing dollars are turning into production dollars.</p>
+          <p>Call tracking techniques such as Dynamic Number Insertion (DNI) are critical for tying your marketing efforts to actual production numbers. Our HIPAA-compliant call tracking service is specifically designed for dentists who want to track ROI for their organic and PPC traffic.</p>
+          <p>We also include an AI overview of calls to see when a call is booked or not, and configuration of Google Analytics to make sure we are tracking the correct data — so you are able to look at the data on your own and understand what's going on.</p>
+
+          <div class="bg-gray-50 rounded-2xl p-7 border border-gray-100 space-y-4">
+            <h3 class="font-display text-lg font-700 text-brand-dark">What's Included</h3>
+            <ul class="space-y-3">
+              {[
+                'Dynamic Number Insertion (DNI) for PPC and organic',
+                'AI-powered call summary — booked vs. not booked',
+                'Google Analytics 4 integration and configuration',
+                'Monthly reporting you can actually read',
+                '30-day free trial',
+                'HIPAA-compliant infrastructure — no PHI exposure',
+              ].map(item => (
+                <li class="flex items-start gap-3 text-sm">
+                  <svg class="w-4 h-4 text-brand-teal shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <a href="/contact" class="inline-flex items-center gap-2 bg-brand-red hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-full transition-colors text-sm">
+            Claim Your 30-Day Free Trial
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Why HIPAA matters -->
+        <div class="space-y-6">
+          <div class="bg-brand-slate rounded-2xl p-7 text-white">
+            <h3 class="font-display text-lg font-700 mb-3">Why HIPAA Compliance Matters for Call Tracking</h3>
+            <p class="text-white/70 text-sm leading-relaxed">Most call tracking platforms were not built with healthcare in mind. Storing or transmitting patient information — including the fact that someone called a dental office — can constitute PHI under HIPAA. Our platform is built from the ground up to ensure no patient data is exposed.</p>
+          </div>
+          <div class="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+            <h3 class="font-display text-lg font-700 text-brand-dark mb-3">Sample Data</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Our reporting shows you exactly which campaigns, keywords, and channels are driving calls — and whether those calls converted to booked appointments. The office is the one who listed the NP status and the revenue.</p>
+            <p class="text-xs text-gray-400 mt-3 italic">Sample report available on request.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>

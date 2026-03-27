@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-slate: #1e3a5f;
+  --color-brand-red:   #e8294a;
+  --color-brand-teal:  #2ab8b8;
+  --color-brand-lime:  #8dc63f;
+  --color-brand-dark:  #111111;
+
+  --font-sans:    'DM Sans', sans-serif;
+  --font-display: 'Lora', serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  /* Font weight utilities not in Tailwind by default */
+  .font-700 { font-weight: 700; }
+  .font-800 { font-weight: 800; }
+}

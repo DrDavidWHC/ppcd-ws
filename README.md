@@ -1,46 +1,68 @@
-# Astro Starter Kit: Basics
+# ppcd-astro
 
-```sh
-npm create astro@latest -- --template basics
+PPC Dentist website — Astro 4.x + Tailwind CSS, deployed to Cloudflare Pages.
+
+## Setup
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Deploy to Cloudflare Pages
 
-## 🚀 Project Structure
+1. Push to GitHub
+2. Connect repo in Cloudflare Pages dashboard
+3. Build command: `npm run build`
+4. Build output directory: `dist`
 
-Inside of your Astro project, you'll see the following folders and files:
+## Adding GHL Form Integration (Future)
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+When ready to wire forms to GoHighLevel:
+
+1. `npx astro add cloudflare` — adds the CF Pages adapter
+2. Create `src/pages/api/contact.ts` as a Cloudflare Pages Function
+3. POST form data to GHL webhook URL (store in CF environment variables)
+4. Update form `action` attributes to point to `/api/contact`
+
+## Project Structure
+
+```
+src/
+  layouts/
+    Layout.astro          # Shared nav + footer
+  pages/
+    index.astro           # Home
+    about.astro           # About Dr. Wank
+    hipaa-compliant-call-tracking.astro
+    hipaa-compliant-website-forms.astro
+    practice-health-guides.astro
+    practice-health-guides-tos.astro
+    contact.astro
+    privacy.astro
+    tos.astro
+    accessibility.astro
+    404.astro
+public/
+  logo-dark.png           # Dark bg logo (footer)
+  logo-light.png          # Light bg logo (nav)
+  _redirects              # Cloudflare redirects
+  _headers                # Security headers
+  robots.txt
+  sitemap.xml
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Brand Colors
 
-## 🧞 Commands
+| Name  | Hex       | Usage                    |
+|-------|-----------|--------------------------|
+| Slate | `#4a5f7a` | Primary / nav / footer   |
+| Red   | `#e8294a` | CTA buttons / accents    |
+| Teal  | `#2ab8b8` | Secondary accent         |
+| Lime  | `#8dc63f` | Tertiary accent          |
+| Dark  | `#111111` | Footer background        |
 
-All commands are run from the root of the project, from a terminal:
+## Fonts
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **Syne** (display/headings) — via Google Fonts
+- **DM Sans** (body) — via Google Fonts
