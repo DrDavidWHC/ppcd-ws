@@ -1,0 +1,82 @@
+---
+/**
+ * BioWithStats
+ * Two-column: left = red badge, heading, body paragraphs, credential chips, dark CTA;
+ *             right = 2×2 stat grid + dark quote card.
+ *
+ * Props:
+ *   badge       – small uppercase red badge (e.g. "Founder & CEO, Short Hills Design LLC")
+ *   heading     – person name/heading
+ *   paragraphs  – array of body paragraph strings
+ *   credentials – array of credential chip strings
+ *   cta         – { label, href }
+ *   stats       – array of 4 { value, label, color?: 'red'|'teal'|'default' }
+ *   quote       – pull-quote text
+ *   quoteAuthor – attribution line
+ */
+export interface Props {
+  badge: string;
+  heading: string;
+  paragraphs: string[];
+  credentials: string[];
+  cta: { label: string; href: string };
+  stats: { value: string; label: string; color?: 'red' | 'teal' | 'default' }[];
+  quote: string;
+  quoteAuthor: string;
+}
+
+const { badge, heading, paragraphs, credentials, cta, stats, quote, quoteAuthor } = Astro.props;
+
+const statColor = (c?: string) => {
+  if (c === 'red')  return 'text-brand-red';
+  if (c === 'teal') return 'text-brand-teal';
+  return 'text-brand-dark';
+};
+---
+
+<section class="bg-white py-20 lg:py-28">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+      <!-- Left: bio -->
+      <div>
+        <span class="text-brand-red text-xs font-semibold tracking-widest uppercase mb-4 block">{badge}</span>
+        <h2 class="font-display text-4xl lg:text-5xl font-semibold text-brand-dark mb-6">{heading}</h2>
+        <div class="space-y-4 text-gray-600 text-sm leading-relaxed mb-8">
+          {paragraphs.map(p => <p>{p}</p>)}
+        </div>
+        <!-- Credential chips -->
+        <div class="flex flex-wrap gap-2 mb-8">
+          {credentials.map(c => (
+            <span class="inline-flex items-center gap-1.5 bg-brand-teal/8 border border-brand-teal/20 text-brand-teal text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full">
+              <svg class="w-3 h-3 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              {c}
+            </span>
+          ))}
+        </div>
+        <a href={cta.href} class="inline-flex items-center gap-2 bg-brand-slate hover:bg-brand-dark text-white font-semibold text-sm px-6 py-3.5 rounded-md transition-colors">
+          {cta.label} &rarr;
+        </a>
+      </div>
+
+      <!-- Right: stats + quote -->
+      <div class="space-y-4">
+        <!-- 2×2 stat grid -->
+        <div class="grid grid-cols-2 gap-4">
+          {stats.map(s => (
+            <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+              <div class={`font-display text-3xl font-bold mb-1 ${statColor(s.color)}`}>{s.value}</div>
+              <div class="text-gray-400 text-xs tracking-widest uppercase">{s.label}</div>
+            </div>
+          ))}
+        </div>
+        <!-- Dark quote card -->
+        <div class="bg-brand-slate rounded-2xl p-8">
+          <p class="font-display italic text-white text-lg leading-relaxed mb-4">&ldquo;{quote}&rdquo;</p>
+          <p class="text-white/40 text-xs tracking-widest uppercase">&mdash; {quoteAuthor}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,109 @@
+---
+/**
+ * PricingCards
+ * Centered heading + subtitle, then two-column: left = white pricing card, right = dark feature card.
+ *
+ * Props:
+ *   heading     – section heading
+ *   subheading  – subtitle
+ *   pricing: {
+ *     price:      string  (e.g. "$850")
+ *     period:     string  (e.g. "/year")
+ *     name:       string  (package name)
+ *     features:   string[]  (checklist — supports italic markdown-style *text*)
+ *     note?:      string  (info note shown in a light box at the bottom)
+ *     cta?:       { label: string; href: string }
+ *     accentColor?: 'teal' | 'red'
+ *   }
+ *   addon: {
+ *     title:    string
+ *     body:     string
+ *     footnote: string
+ *     cta?:     { label: string; href: string }
+ *   }
+ */
+export interface Props {
+  heading: string;
+  subheading?: string;
+  pricing: {
+    price: string;
+    period: string;
+    name: string;
+    features: string[];
+    note?: string;
+    cta?: { label: string; href: string };
+    accentColor?: 'teal' | 'red';
+  };
+  addon: {
+    title: string;
+    body: string;
+    footnote: string;
+    cta?: { label: string; href: string };
+  };
+}
+
+const { heading, subheading, pricing, addon } = Astro.props;
+const accent = pricing.accentColor === 'red' ? 'border-t-brand-red' : 'border-t-brand-teal';
+---
+
+<section class="bg-gray-50 py-20 lg:py-28">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+
+    <!-- Heading -->
+    <div class="text-center mb-12">
+      <h2 class="font-display text-4xl lg:text-5xl font-semibold text-brand-dark mb-3">{heading}</h2>
+      {subheading && <p class="text-gray-500 text-base">{subheading}</p>}
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-5">
+
+      <!-- Left: pricing card -->
+      <div class={`lg:col-span-3 bg-white rounded-2xl p-8 border border-gray-100 border-t-4 ${accent} flex flex-col`}>
+        <div class="mb-6">
+          <span class="font-display text-5xl font-bold text-brand-dark">{pricing.price}</span>
+          <span class="text-gray-400 text-lg ml-1">{pricing.period}</span>
+        </div>
+        <h3 class="font-semibold text-brand-dark text-lg mb-6">{pricing.name}</h3>
+        <ul class="space-y-3 mb-8 flex-1">
+          {pricing.features.map(f => (
+            <li class="flex items-start gap-3 text-sm text-gray-600">
+              <svg class="w-4 h-4 text-brand-teal shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span set:html={f.replace(/\*(.*?)\*/g, '<em>$1</em>')}></span>
+            </li>
+          ))}
+        </ul>
+        {pricing.note && (
+          <div class="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 flex items-start gap-2 text-xs text-gray-500 mb-6">
+            <svg class="w-4 h-4 text-gray-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span set:html={pricing.note.replace(/\$([\d,]+)/g, '<strong class="text-brand-dark">$$1</strong>')}></span>
+          </div>
+        )}
+        {pricing.cta && (
+          <a href={pricing.cta.href} class="block text-center bg-brand-slate hover:bg-brand-dark text-white font-semibold text-sm px-6 py-3.5 rounded-xl transition-colors">
+            {pricing.cta.label}
+          </a>
+        )}
+      </div>
+
+      <!-- Right: dark addon card -->
+      <div class="lg:col-span-2 bg-brand-slate rounded-2xl p-8 flex flex-col justify-between">
+        <div>
+          <div class="w-10 h-10 rounded-lg bg-brand-teal/20 flex items-center justify-center mb-6">
+            <svg class="w-5 h-5 text-brand-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>
+          </div>
+          <h3 class="font-display text-2xl font-semibold text-white mb-4">{addon.title}</h3>
+          <p class="text-white/60 text-sm leading-relaxed mb-6">{addon.body}</p>
+        </div>
+        <div>
+          {addon.cta && (
+            <a href={addon.cta.href} class="block text-center bg-white/10 hover:bg-white/20 text-white font-semibold text-sm px-5 py-3 rounded-xl transition-colors mb-4">
+              {addon.cta.label}
+            </a>
+          )}
+          <p class="text-white/30 text-xs leading-relaxed">{addon.footnote}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

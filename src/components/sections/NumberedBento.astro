@@ -1,0 +1,105 @@
+---
+/**
+ * NumberedBento
+ * Section heading with teal underline accent + a bento grid of numbered cards.
+ * One card is designated as "featured" (dark bg, larger, supports image + bullet list).
+ *
+ * Props:
+ *   heading       – first line of heading (plain bold)
+ *   headingItalic – second line rendered italic serif
+ *   items         – array of card objects:
+ *     {
+ *       title:    string
+ *       body:     string
+ *       featured?: boolean   – renders as the large dark card
+ *       image?:   string     – image src (only shown on featured card)
+ *       bullets?: string[]   – checklist items (only shown on featured card)
+ *     }
+ *   Items are rendered in order; the featured one occupies the large slot.
+ *   Recommended: 3 items with one featured (matches the 2-col asymmetric layout).
+ */
+export interface Props {
+  heading: string;
+  headingItalic: string;
+  items: {
+    title: string;
+    body: string;
+    featured?: boolean;
+    image?: string;
+    bullets?: string[];
+  }[];
+}
+
+const { heading, headingItalic, items } = Astro.props;
+
+const regular = items.filter(i => !i.featured);
+const featured = items.find(i => i.featured);
+const featuredIndex = items.findIndex(i => i.featured);
+---
+
+<section class="bg-gray-50 py-20 lg:py-28">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+
+    <!-- Heading -->
+    <div class="mb-12">
+      <h2 class="font-display text-4xl lg:text-5xl font-semibold text-brand-dark leading-tight">
+        {heading}<br />
+        <em class="font-display italic font-normal">{headingItalic}</em>
+      </h2>
+      <div class="mt-4 w-10 h-0.5 bg-brand-teal"></div>
+    </div>
+
+    <!-- Bento grid: left col (2 light cards stacked) + right col (1 featured dark card) -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+      <!-- Left: stacked light cards -->
+      <div class="flex flex-col gap-4">
+        {items.filter(i => !i.featured).map((item, i) => {
+          const num = items.indexOf(item) + 1;
+          return (
+            <div class="bg-white rounded-2xl p-8 border border-gray-100 flex-1">
+              <div class="font-display text-4xl font-semibold text-gray-200 mb-4">
+                {String(num).padStart(2, '0')}
+              </div>
+              <h3 class="font-semibold text-brand-dark text-lg mb-3">{item.title}</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">{item.body}</p>
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- Right: featured dark card -->
+      {featured && (
+        <div class="bg-brand-slate rounded-2xl p-8 flex flex-col justify-between">
+          <div>
+            <div class="font-display text-4xl font-semibold text-white/20 mb-4">
+              {String(featuredIndex + 1).padStart(2, '0')}
+            </div>
+            <div class="flex items-start justify-between gap-4 mb-5">
+              <h3 class="font-display text-2xl lg:text-3xl font-semibold text-white leading-tight">{featured.title}</h3>
+              {featured.image && (
+                <div class="w-24 h-24 rounded-full overflow-hidden bg-white/10 shrink-0">
+                  <img src={featured.image} alt={featured.title} class="w-full h-full object-cover opacity-80" />
+                </div>
+              )}
+            </div>
+            <p class="text-white/60 text-sm leading-relaxed mb-6">{featured.body}</p>
+            {featured.bullets && featured.bullets.length > 0 && (
+              <ul class="space-y-2">
+                {featured.bullets.map(b => (
+                  <li class="flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-brand-teal">
+                    <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      )}
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+---
+/**
+ * ComplianceCard
+ * A contained card with italic serif heading, body text, and a teal highlight callout box.
+ * Sits on a light background with a thin top accent line.
+ *
+ * Props:
+ *   heading      – card heading (rendered italic serif)
+ *   body         – paragraph body text
+ *   calloutTitle – bold text inside the teal highlight box
+ *   calloutBody  – description inside the teal highlight box
+ */
+export interface Props {
+  heading: string;
+  body: string;
+  calloutTitle: string;
+  calloutBody: string;
+}
+
+const { heading, body, calloutTitle, calloutBody } = Astro.props;
+---
+
+<section class="bg-gray-50 py-20 lg:py-28">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+    <div class="bg-white rounded-2xl p-8 lg:p-12 shadow-sm border border-gray-100">
+
+      <h2 class="font-display italic text-3xl lg:text-4xl text-brand-dark font-normal mb-6">{heading}</h2>
+      <p class="text-gray-600 text-sm leading-relaxed mb-8 max-w-2xl">{body}</p>
+
+      <!-- Teal callout box -->
+      <div class="bg-brand-teal/8 border border-brand-teal/20 rounded-xl p-5 flex items-start gap-4">
+        <div class="w-8 h-8 rounded-full bg-brand-teal/15 flex items-center justify-center shrink-0 mt-0.5">
+          <svg class="w-4 h-4 text-brand-teal" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-semibold text-brand-dark text-sm mb-1">{calloutTitle}</p>
+          <p class="text-gray-500 text-sm leading-relaxed">{calloutBody}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

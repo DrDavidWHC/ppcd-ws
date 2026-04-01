@@ -1,0 +1,67 @@
+---
+/**
+ * FeatureCardWithText
+ * Two-column: left = light card with teal icon, bold title, body, large watermark icon;
+ *             right = large bold serif heading, body, teal checklist items.
+ *
+ * Props:
+ *   cardTitle   – bold title inside the left card
+ *   cardBody    – body text inside the left card
+ *   heading     – large heading on the right (can be multi-line)
+ *   body        – paragraph below the right heading
+ *   checklist   – array of { title, body } teal-checked items on the right
+ */
+export interface Props {
+  cardTitle: string;
+  cardBody: string;
+  heading: string;
+  body: string;
+  checklist: { title: string; body: string }[];
+}
+
+const { cardTitle, cardBody, heading, body, checklist } = Astro.props;
+---
+
+<section class="bg-gray-50 py-20 lg:py-28">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <!-- Left: feature card -->
+      <div class="bg-white rounded-2xl p-10 border border-gray-100 relative overflow-hidden text-center">
+        <!-- Watermark icon -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-5 pointer-events-none">
+          <svg class="w-48 h-48 text-brand-teal" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        </div>
+        <div class="relative z-10">
+          <div class="w-14 h-14 rounded-2xl bg-brand-teal flex items-center justify-center mx-auto mb-6">
+            <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-semibold text-brand-dark text-xl mb-4">{cardTitle}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto">{cardBody}</p>
+        </div>
+      </div>
+
+      <!-- Right: heading + checklist -->
+      <div>
+        <h2 class="font-display text-4xl lg:text-5xl font-semibold text-brand-dark leading-tight mb-6">{heading}</h2>
+        <p class="text-gray-500 text-base leading-relaxed mb-8">{body}</p>
+        <ul class="space-y-5">
+          {checklist.map(item => (
+            <li class="flex items-start gap-4">
+              <div class="w-6 h-6 rounded-full bg-brand-teal/15 flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-brand-teal" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-brand-dark text-sm mb-0.5">{item.title}</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">{item.body}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>

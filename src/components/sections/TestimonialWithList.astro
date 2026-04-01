@@ -1,0 +1,78 @@
+---
+/**
+ * TestimonialWithList
+ * Two-column section: left = testimonial quote card, right = heading + numbered feature list.
+ *
+ * Props:
+ *   heading       – first line of heading (bold)
+ *   headingItalic – second line rendered italic teal serif
+ *   quote         – testimonial quote text
+ *   authorName    – author full name
+ *   authorTitle   – author title / company
+ *   authorImage   – optional path to author headshot
+ *   items         – array of { title, body } — rendered as 01, 02, 03...
+ */
+export interface Props {
+  heading: string;
+  headingItalic: string;
+  quote: string;
+  authorName: string;
+  authorTitle: string;
+  authorImage?: string;
+  items: { title: string; body: string }[];
+}
+
+const { heading, headingItalic, quote, authorName, authorTitle, authorImage, items } = Astro.props;
+---
+
+<section class="bg-gray-50 py-20 lg:py-28">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+      <!-- Left: testimonial card -->
+      <div class="relative pt-6">
+        <!-- Floating quote marks above the card -->
+        <span class="absolute top-0 left-4 font-display text-5xl text-brand-teal/40 leading-none select-none">&ldquo;&ldquo;</span>
+        <div class="bg-blue-50 rounded-2xl p-8">
+          <blockquote>
+            <p class="font-display italic text-brand-dark text-lg leading-relaxed mb-8">&ldquo;{quote}&rdquo;</p>
+            <footer class="flex items-center gap-3">
+              {authorImage
+                ? <img src={authorImage} alt={authorName} class="w-12 h-12 rounded-full object-cover shrink-0" />
+                : <div class="w-12 h-12 rounded-full bg-brand-slate/20 flex items-center justify-center text-brand-slate font-semibold shrink-0">
+                    {authorName.charAt(0)}
+                  </div>
+              }
+              <div>
+                <div class="font-semibold text-brand-dark text-sm">{authorName}</div>
+                <div class="text-gray-400 text-xs tracking-widest uppercase mt-0.5">{authorTitle}</div>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Right: heading + numbered list -->
+      <div>
+        <h2 class="font-display text-4xl lg:text-5xl font-semibold text-brand-dark leading-tight mb-10">
+          {heading}<br />
+          <em class="font-display italic font-normal text-brand-teal">{headingItalic}</em>
+        </h2>
+        <ol>
+          {items.map((item, i) => (
+            <li class={`flex gap-5 items-start py-6 ${i > 0 ? 'border-t border-gray-200' : ''}`}>
+              <span class="font-display text-3xl font-semibold text-gray-200 leading-none shrink-0 w-10 text-right mt-0.5">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <div>
+                <h4 class="font-semibold text-brand-dark mb-1.5">{item.title}</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">{item.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</section>

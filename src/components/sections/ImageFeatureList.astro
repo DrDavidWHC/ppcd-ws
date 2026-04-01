@@ -1,0 +1,67 @@
+---
+/**
+ * ImageFeatureList
+ * Two-column section: left = image collage mosaic, right = heading + feature list.
+ *
+ * Props:
+ *   heading  – section heading (can include <em> for italic)
+ *   features – array of { title, body }
+ *   images   – array of up to 4 image { src, alt } objects for the collage
+ *              (falls back to placeholder boxes if not provided)
+ */
+export interface Props {
+  heading: string;
+  features: { title: string; body: string }[];
+  images?: { src: string; alt: string }[];
+}
+
+const { heading, features, images = [] } = Astro.props;
+---
+
+<section class="bg-white py-20 lg:py-28">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <!-- Left: image collage -->
+      <div class="grid grid-cols-2 gap-3">
+        <!-- Top-left: tall dark image -->
+        <div class="row-span-2 rounded-2xl overflow-hidden bg-brand-dark aspect-[3/4]">
+          {images[0]
+            ? <img src={images[0].src} alt={images[0].alt} class="w-full h-full object-cover" />
+            : <div class="w-full h-full bg-gray-800"></div>
+          }
+        </div>
+        <!-- Top-right: light blue placeholder -->
+        <div class="rounded-2xl overflow-hidden bg-blue-100 aspect-[4/3]">
+          {images[1]
+            ? <img src={images[1].src} alt={images[1].alt} class="w-full h-full object-cover" />
+            : <div class="w-full h-full"></div>
+          }
+        </div>
+        <!-- Bottom-right: dark image -->
+        <div class="rounded-2xl overflow-hidden bg-brand-dark aspect-[4/3]">
+          {images[2]
+            ? <img src={images[2].src} alt={images[2].alt} class="w-full h-full object-cover" />
+            : <div class="w-full h-full bg-gray-800"></div>
+          }
+        </div>
+        <!-- Teal accent block (bottom-left of right col, below the tall card) -->
+        <!-- handled by row-span-2 above — add a teal strip -->
+      </div>
+
+      <!-- Right: heading + feature list -->
+      <div>
+        <h2 class="font-display text-4xl lg:text-5xl font-semibold text-brand-dark leading-tight mb-10" set:html={heading}></h2>
+        <dl class="space-y-8">
+          {features.map(f => (
+            <div>
+              <dt class="font-semibold text-brand-dark mb-1.5">{f.title}</dt>
+              <dd class="text-gray-500 text-sm leading-relaxed">{f.body}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,124 @@
+---
+/**
+ * ServicesBento
+ * Left-aligned badge + heading, then a 2×2 asymmetric bento grid:
+ *   - Top-left (wide light): icon, title, body, link
+ *   - Top-right (light blue): icon, title, body, badge pill
+ *   - Bottom-left (narrow dark): icon, title, body, CTA button
+ *   - Bottom-right (wider): title, body, stat row, image
+ *
+ * Props:
+ *   badge   – small uppercase teal badge
+ *   heading – section heading
+ *   cards   – exactly 4 card objects:
+ *     {
+ *       title:     string
+ *       body:      string
+ *       accent?:   'dark' | 'blue' | 'default'
+ *       link?:     { label: string; href: string }
+ *       badge?:    string
+ *       cta?:      { label: string; href: string }
+ *       stats?:    { value: string; label: string }[]
+ *       image?:    string
+ *     }
+ */
+export interface Props {
+  badge: string;
+  heading: string;
+  cards: {
+    title: string;
+    body: string;
+    accent?: 'dark' | 'blue' | 'default';
+    link?: { label: string; href: string };
+    badge?: string;
+    cta?: { label: string; href: string };
+    stats?: { value: string; label: string }[];
+    image?: string;
+  }[];
+}
+
+const { badge, heading, cards } = Astro.props;
+const [c1, c2, c3, c4] = cards;
+---
+
+<section class="bg-gray-50 py-20 lg:py-28">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+
+    <!-- Heading -->
+    <div class="mb-10">
+      <span class="text-brand-teal text-xs font-semibold tracking-widest uppercase mb-3 block">{badge}</span>
+      <h2 class="font-display text-4xl lg:text-5xl font-semibold text-brand-dark">{heading}</h2>
+    </div>
+
+    <!-- Top row -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 mb-4">
+      <!-- Top-left: wide default -->
+      <div class="lg:col-span-3 bg-white rounded-2xl p-8 border border-gray-100">
+        <div class="w-9 h-9 rounded-lg bg-brand-teal/10 flex items-center justify-center mb-5">
+          <svg class="w-4 h-4 text-brand-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold text-brand-dark mb-3">{c1.title}</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-6">{c1.body}</p>
+        {c1.link && <a href={c1.link.href} class="text-brand-dark font-semibold text-sm hover:text-brand-teal transition-colors">{c1.link.label} &rarr;</a>}
+      </div>
+      <!-- Top-right: light blue -->
+      <div class="lg:col-span-2 bg-blue-50 rounded-2xl p-8">
+        <div class="w-9 h-9 rounded-lg bg-brand-teal/15 flex items-center justify-center mb-5">
+          <svg class="w-4 h-4 text-brand-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold text-brand-dark mb-3">{c2.title}</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-6">{c2.body}</p>
+        {c2.badge && (
+          <span class="inline-flex items-center gap-1.5 border border-brand-teal/30 text-brand-teal text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full">
+            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            {c2.badge}
+          </span>
+        )}
+      </div>
+    </div>
+
+    <!-- Bottom row -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
+      <!-- Bottom-left: dark -->
+      <div class="lg:col-span-2 bg-brand-slate rounded-2xl p-8 flex flex-col justify-between">
+        <div>
+          <div class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center mb-5">
+            <svg class="w-4 h-4 text-brand-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-semibold text-white mb-3">{c3.title}</h3>
+          <p class="text-white/60 text-sm leading-relaxed mb-8">{c3.body}</p>
+        </div>
+        {c3.cta && (
+          <a href={c3.cta.href} class="block text-center bg-white/10 hover:bg-white/20 text-white font-semibold text-sm px-5 py-3 rounded-xl transition-colors">
+            {c3.cta.label}
+          </a>
+        )}
+      </div>
+      <!-- Bottom-right: wider with stats + image -->
+      <div class="lg:col-span-3 bg-white rounded-2xl p-8 border border-gray-100">
+        <div class="flex gap-6 items-start">
+          <div class="flex-1">
+            <h3 class="font-display text-xl font-semibold text-brand-dark mb-3">{c4.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-6">{c4.body}</p>
+            {c4.stats && c4.stats.length > 0 && (
+              <div class="flex items-center gap-6">
+                {c4.stats.map(s => (
+                  <div>
+                    <div class="font-bold text-brand-teal text-xl">{s.value}</div>
+                    <div class="text-gray-400 text-xs tracking-widest uppercase mt-0.5">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+          {c4.image && (
+            <div class="w-32 h-28 rounded-xl overflow-hidden bg-gray-100 shrink-0">
+              <img src={c4.image} alt={c4.title} class="w-full h-full object-cover" />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,52 @@
+---
+/**
+ * ThreePillarColumns
+ * Centered badge + italic serif heading, then 3 equal columns with teal icon, italic title, body.
+ *
+ * Props:
+ *   badge   – small uppercase teal badge text
+ *   heading – italic serif section heading
+ *   pillars – array of exactly 3 { title, body } objects
+ */
+export interface Props {
+  badge: string;
+  heading: string;
+  pillars: { title: string; body: string }[];
+}
+
+const { badge, heading, pillars } = Astro.props;
+
+const icons = [
+  // Book / education
+  `<path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>`,
+  // Badge / authority
+  `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>`,
+  // Heart / trust
+  `<path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>`,
+];
+---
+
+<section class="bg-gray-50 py-20 lg:py-28">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+
+    <!-- Heading -->
+    <div class="text-center mb-16">
+      <span class="text-brand-teal text-xs font-semibold tracking-widest uppercase mb-4 block">{badge}</span>
+      <h2 class="font-display italic text-4xl lg:text-5xl text-brand-dark font-normal">{heading}</h2>
+    </div>
+
+    <!-- Three columns -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
+      {pillars.map((pillar, i) => (
+        <div>
+          <div class="w-10 h-10 rounded-lg bg-brand-teal/10 flex items-center justify-center mb-6">
+            <svg class="w-5 h-5 text-brand-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" set:html={icons[i % icons.length]}></svg>
+          </div>
+          <h3 class="font-display italic text-xl text-brand-dark font-normal mb-4">{pillar.title}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">{pillar.body}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

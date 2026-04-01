@@ -1,0 +1,84 @@
+---
+/**
+ * PricingWithQuote
+ * Two-column: left = light card with badge, italic heading, body, pricing rows, CTA;
+ *             right = large italic serif pull-quote with author.
+ *
+ * Props:
+ *   badge        – small uppercase teal badge
+ *   heading      – italic serif heading on the pricing card
+ *   body         – description text on the pricing card
+ *   lineItems    – array of { label, sublabel, price } pricing rows
+ *   cta          – { label, href }
+ *   quote        – pull-quote text (no quotation marks needed)
+ *   authorName   – quote author name
+ *   authorTitle  – quote author title / practice
+ *   authorImage? – headshot src
+ */
+export interface Props {
+  badge: string;
+  heading: string;
+  body: string;
+  lineItems: { label: string; sublabel: string; price: string }[];
+  cta: { label: string; href: string };
+  quote: string;
+  authorName: string;
+  authorTitle: string;
+  authorImage?: string;
+}
+
+const { badge, heading, body, lineItems, cta, quote, authorName, authorTitle, authorImage } = Astro.props;
+---
+
+<section class="bg-white py-20 lg:py-28">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <!-- Left: pricing card -->
+      <div class="bg-blue-50 rounded-2xl p-8 lg:p-10">
+        <span class="text-brand-teal text-xs font-semibold tracking-widest uppercase mb-4 block">{badge}</span>
+        <h2 class="font-display italic text-3xl lg:text-4xl text-brand-dark font-normal leading-tight mb-5">{heading}</h2>
+        <p class="text-gray-500 text-sm leading-relaxed mb-8">{body}</p>
+
+        <!-- Pricing rows -->
+        <div class="space-y-5 mb-8">
+          {lineItems.map(item => (
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="font-semibold text-brand-dark text-sm">{item.label}</div>
+                <div class="text-gray-400 text-xs tracking-widest uppercase mt-0.5">{item.sublabel}</div>
+              </div>
+              <div class="font-display text-xl font-semibold text-brand-teal">{item.price}</div>
+            </div>
+          ))}
+        </div>
+
+        <a href={cta.href} class="block text-center bg-brand-slate hover:bg-brand-dark text-white font-semibold text-xs tracking-widest uppercase px-6 py-4 rounded-xl transition-colors">
+          {cta.label}
+        </a>
+      </div>
+
+      <!-- Right: pull-quote -->
+      <div class="lg:pl-4">
+        <blockquote>
+          <p class="font-display italic text-brand-dark text-2xl lg:text-3xl leading-snug mb-8">
+            &ldquo;{quote}&rdquo;
+          </p>
+          <footer class="flex items-center gap-3">
+            {authorImage
+              ? <img src={authorImage} alt={authorName} class="w-12 h-12 rounded-full object-cover shrink-0" />
+              : <div class="w-12 h-12 rounded-full bg-brand-slate/20 flex items-center justify-center text-brand-slate font-semibold shrink-0">
+                  {authorName.charAt(0)}
+                </div>
+            }
+            <div>
+              <div class="font-semibold text-brand-dark text-sm">{authorName}</div>
+              <div class="text-gray-400 text-xs mt-0.5">{authorTitle}</div>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+
+    </div>
+  </div>
+</section>
