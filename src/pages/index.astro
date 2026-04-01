@@ -4,40 +4,42 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Lead Generation You Can Actually Trust" description="We help dental practices get 5–10 new patients per month using HIPAA-compliant PPC, call tracking, and education-based drip marketing.">
 
   <!-- HERO -->
-  <section class="bg-brand-slate relative overflow-hidden">
-    <!-- Background accents -->
-    <div class="absolute top-0 right-0 w-96 h-96 bg-brand-red/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-teal/10 rounded-full translate-y-1/2 -translate-x-1/3 blur-3xl pointer-events-none"></div>
+  <section class="bg-white py-20 lg:py-28">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
-      <div class="max-w-2xl">
-        <p class="text-brand-teal text-xs font-semibold tracking-widest uppercase mb-4">Dental PPC Management</p>
-        <h1 class="font-display text-4xl lg:text-6xl font-800 text-white leading-tight mb-6">
-          Lead Generation<br />
-          <span class="text-brand-red">You Can Actually</span><br />
-          Trust.
-        </h1>
-        <p class="text-white/70 text-lg leading-relaxed mb-8 max-w-xl">
-          We help dental practices get 5–10 new patients per month using HIPAA-compliant PPC, call tracking, and education-based drip marketing.
-        </p>
-        <div class="flex flex-wrap gap-4 items-center">
-          <a href="/contact" class="inline-flex items-center gap-2 bg-brand-red hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-full transition-colors text-sm">
-            Get Started
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-            </svg>
-          </a>
-          <a href="/about" class="text-white/60 hover:text-white text-sm font-medium transition-colors">
-            Meet Dr. Wank →
+        <!-- Left: text -->
+        <div>
+          <span class="inline-flex items-center gap-1.5 text-brand-teal text-xs font-semibold tracking-widest uppercase mb-6">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 22l-2.09-10.26L4 10l5.91-1.74z"/></svg>
+            For High-Volume Practices
+          </span>
+          <h1 class="font-display text-5xl lg:text-6xl font-semibold text-brand-dark leading-tight mb-6">
+            Elite Dental Marketing:<br />
+            <em class="font-display italic font-normal">The Clinical Authority</em>
+          </h1>
+          <p class="text-gray-500 text-base leading-relaxed mb-8 max-w-md">
+            We don't just generate clicks. We build high-authority digital ecosystems for dental specialists who demand surgical precision in their patient acquisition.
+          </p>
+          <a href="/contact" class="inline-flex items-center bg-brand-slate hover:bg-brand-dark text-white font-semibold text-sm px-6 py-3 rounded-md transition-colors">
+            Partner With Us
           </a>
         </div>
+
+        <!-- Right: image -->
+        <div class="relative">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100">
+            <img src="/hero-dental.jpg" alt="Modern dental operatory" class="w-full h-full object-cover" />
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- SERVICE CARDS -->
   <section class="bg-gray-50 py-16 lg:py-20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8">
       <p class="text-brand-slate text-xs font-semibold tracking-widest uppercase mb-3 text-center">What We Do</p>
       <h2 class="font-display text-3xl lg:text-4xl font-700 text-brand-dark text-center mb-12">Everything Your Practice Needs to Grow</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -81,7 +83,7 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- MEET DR. WANK -->
   <section class="py-20 lg:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         <!-- Text -->
@@ -146,22 +148,6 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA BANNER -->
-  <section class="bg-brand-red py-14">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-      <h2 class="font-display text-3xl lg:text-4xl font-700 text-white mb-4">Ready to Grow Your Practice?</h2>
-      <p class="text-white/80 mb-8 max-w-xl mx-auto">Schedule a complimentary consultation with Dr. Wank and find out exactly how we can help your practice.</p>
-      <div class="flex flex-wrap gap-4 justify-center">
-        <a href="/contact" class="inline-flex items-center gap-2 bg-white text-brand-red font-semibold px-6 py-3 rounded-full hover:bg-red-50 transition-colors text-sm">
-          Schedule a Free Consultation
-        </a>
-        <a href="tel:9734009004" class="inline-flex items-center gap-2 border border-white/40 text-white font-semibold px-6 py-3 rounded-full hover:bg-white/10 transition-colors text-sm">
-          (973) 400-9004
-        </a>
       </div>
     </div>
   </section>
