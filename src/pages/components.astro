@@ -1,0 +1,241 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BentoFeature from '../components/sections/BentoFeature.astro';
+import NumberedBento from '../components/sections/NumberedBento.astro';
+import TrustBento from '../components/sections/TrustBento.astro';
+import ServicesBento from '../components/sections/ServicesBento.astro';
+import ImageFeatureList from '../components/sections/ImageFeatureList.astro';
+import FeatureWithImage from '../components/sections/FeatureWithImage.astro';
+import FeatureCardWithText from '../components/sections/FeatureCardWithText.astro';
+import TestimonialWithList from '../components/sections/TestimonialWithList.astro';
+import BioWithStats from '../components/sections/BioWithStats.astro';
+import ComplianceCard from '../components/sections/ComplianceCard.astro';
+import ThreePillarColumns from '../components/sections/ThreePillarColumns.astro';
+import PricingWithQuote from '../components/sections/PricingWithQuote.astro';
+import PricingCards from '../components/sections/PricingCards.astro';
+import ServiceCards from '../components/sections/ServiceCards.astro';
+---
+
+<Layout title="Component Showcase">
+
+  <!-- Label helper -->
+  {[
+    { num: 1,  name: 'BentoFeature' },
+    { num: 2,  name: 'NumberedBento' },
+    { num: 3,  name: 'TrustBento' },
+    { num: 4,  name: 'ServicesBento' },
+    { num: 5,  name: 'ImageFeatureList' },
+    { num: 6,  name: 'FeatureWithImage' },
+    { num: 7,  name: 'FeatureCardWithText' },
+    { num: 8,  name: 'TestimonialWithList' },
+    { num: 9,  name: 'BioWithStats' },
+    { num: 10, name: 'ComplianceCard' },
+    { num: 11, name: 'ThreePillarColumns' },
+    { num: 12, name: 'PricingWithQuote' },
+    { num: 13, name: 'PricingCards' },
+    { num: 14, name: 'ServiceCards' },
+  ].map(() => null)}
+
+  <!-- ─── Component 1 ─────────────────────────────────────────── -->
+  <div class="bg-brand-dark text-white text-xs font-semibold tracking-widest uppercase px-6 py-3 sticky top-[88px] z-40">Component 1 — BentoFeature</div>
+  <BentoFeature
+    heading="Intelligence Meets Integrity."
+    subheading="Advanced AI processing secured within a fortress of clinical-grade compliance."
+    primaryBadge="Compliance Standard"
+    primaryTitle="Ironclad HIPAA Compliance Infrastructure."
+    primaryBody="Your patient data (PHI) is sacred. We sign BAAs with every client, ensuring all call recordings, transcriptions, and lead data are encrypted at rest and in transit."
+    primaryStats={[{ value: "256-bit", label: "Encryption" }, { value: "SOC2", label: "Certified" }, { value: "BAA", label: "Available" }]}
+    secondaryTitle="AI Call Overviews"
+    secondaryBody="Save hours of manual review. Our clinical-tuned AI summarizes every patient call, identifying:"
+    secondaryList={["Treatment Intent", "Front-Desk Sentiment", "Next Step Confirmation"]}
+    cards={[
+      { title: "Instant Transcription", body: "Searchable text logs for every call to resolve disputes or train staff." },
+      { title: "Missed Call Alerts", body: "Real-time SMS and email notifications so you never lose a prospect." },
+      { title: "PMS Integrations", body: "Seamless flow of data into Dentrix, Open Dental, and more." },
+    ]}
+  />
+
+  <!-- ─── Component 2 ─────────────────────────────────────────── -->
+  <div class="bg-brand-dark text-white text-xs font-semibold tracking-widest uppercase px-6 py-3 sticky top-[88px] z-40">Component 2 — NumberedBento</div>
+  <NumberedBento
+    heading="Why General Agencies Fail"
+    headingItalic="Specialized Practices"
+    items={[
+      { title: "Tactical Myopia", body: "Most agencies sell 'clicks.' We build clinical authority. If your marketing doesn't mirror the sophistication of your surgery, you're losing high-value patients." },
+      { title: "The \"Commodity\" Trap", body: "Specialists aren't generalists. When an agency treats a periodontist like a local pizza shop, they destroy your perceived value.", featured: true, bullets: ["Zero Generic Templates", "Clinical Content Precision"] },
+      { title: "Metrics Without Meaning", body: "Traffic is vanity. Case acceptance is sanity. We track the journey from first impression to the surgical chair with forensic detail." },
+    ]}
+  />
+
+  <!-- ─── Component 3 ─────────────────────────────────────────── -->
+  <div class="bg-brand-dark text-white text-xs font-semibold tracking-widest uppercase px-6 py-3 sticky top-[88px] z-40">Component 3 — TrustBento</div>
+  <TrustBento
+    badge="Security Framework"
+    heading="The Architecture of Trust"
+    cards={[
+      { title: "Technical Safeguards", body: "256-bit AES encryption at rest and TLS 1.3 in transit. We exceed the federal requirements for data sovereignty.", badge: "Active Protection" },
+      { title: "Peer-Reviewed", body: "Form fields and workflows validated by actual dental practitioners to ensure clinical relevance and patient ease." },
+      { title: "Administrative Safeguards", body: "Comprehensive BAA included by default. Full audit logs for every user interaction.", accent: "teal", bullets: ["Instant BAA Issuance", "Real-time Audit Trails", "Encrypted Data Export"] },
+    ]}
+    banner={{ title: "60 Days to Results", body: "Our protocol guarantees a reduction in patient drop-off and lead leakage within 60 days of deployment or we refund your platform fee.", stat: "60", statLabel: "Day Sprint", ctaLabel: "Accelerate", ctaHref: "/contact" }}
+  />
+
+  <!-- ─── Component 4 ─────────────────────────────────────────── -->
+  <div class="bg-brand-dark text-white text-xs font-semibold tracking-widest uppercase px-6 py-3 sticky top-[88px] z-40">Component 4 — ServicesBento</div>
+  <ServicesBento
+    badge="Core Ecosystem"
+    heading="Engineered for Specialists"
+    cards={[
+      { title: "Lead Generation Services", body: "Data-driven patient acquisition frameworks that filter for high-value cases: implants, orthodontics, and restorative surgery.", link: { label: "Explore Service", href: "/contact" } },
+      { title: "HIPAA Compliant Forms", body: "Secure, encrypted patient intake systems that prioritize privacy and legal integrity.", badge: "Certified Secure" },
+      { title: "HIPAA Compliant PPC Services", body: "Managing high-spend Google & Meta campaigns with specialized protocols for dental compliance.", cta: { label: "Request Audit", href: "/contact" } },
+      { title: "The Clinical Method", body: "Our proprietary 4-stage optimization process ensures your cost-per-acquisition decreases while lead quality increases over a 12-month cycle.", stats: [{ value: "142%", label: "Avg. ROAS" }, { value: "0", label: "Compliance Breaches" }] },
+    ]}
+  />
+
+  <!-- ─── Component 5 ─────────────────────────────────────────── -->
+  <div class="bg-brand-dark text-white text-xs font-semibold tracking-widest uppercase px-6 py-3 sticky top-[88px] z-40">Component 5 — ImageFeatureList</div>
+  <ImageFeatureList
+    heading="The Authority in<br /><em class='font-display italic font-normal'>Secure Patient Intake</em>"
+    features={[
+      { title: "Military-Grade Encryption", body: "All form submissions are encrypted in transit and at rest using AES-256 standards, exceeding basic HIPAA requirements." },
+      { title: "Seamless CRM Integration", body: "Connect your secure forms directly to your Practice Management Software (PMS) with our proprietary API bridges." },
+      { title: "Legal Compliance (BAA)", body: "We sign a Business Associate Agreement with every client, legally anchoring our commitment to your data security." },
+    ]}
+  />
+
+  <!-- ─── Component 6 ─────────────────────────────────────────── -->
+  <div class="bg-brand-dark text-white text-xs font-semibold tracking-widest uppercase px-6 py-3 sticky top-[88px] z-40">Component 6 — FeatureWithImage</div>
+  <FeatureWithImage
+    heading="Why Generalist Agencies"
+    headingItalic="Fail Specialized Practices."
+    body="General marketers optimize for 'clicks.' We optimize for 'qualified patient intake.' Most agencies overlook the critical gap between a web lead and a scheduled procedure."
+    items={[
+      { title: "Compliance Blind Spots", body: "Standard forms send PHI through non-secure channels, exposing your practice to severe federal penalties.", color: "red" },
+      { title: "Non-Clinical Attribution", body: "Generic tracking fails to account for the unique conversion path of dental patients, leading to wasted ad spend.", color: "red" },
+    ]}
+  />
+
+  <!-- ─── Component 7 ─────────────────────────────────────────── -->
+  <div class="bg-brand-dark text-white text-xs font-semibold tracking-widest uppercase px-6 py-3 sticky top-[88px] z-40">Component 7 — FeatureCardWithText</div>
+  <FeatureCardWithText
+    cardTitle="Session-Level DNI"
+    cardBody="Dynamic Number Insertion assigns unique tracking numbers to every visitor, mapping phone calls directly to their digital source."
+    heading="Identify Exactly Which Campaigns Drive Bookings."
+    body="Generic tracking isn't enough for specialized dental practices. Our DNI technology tracks the keyword, the ad, and the specific landing page version that prompted the call."
+    checklist={[
+      { title: "Source-Level Attribution", body: "Track calls from Google Ads, Facebook, and Organic SEO separately." },
+      { title: "Keyword Intelligence", body: "Know the search intent behind the dial before the phone even rings." },
+    ]}
+  />
+
+  <!-- ─── Component 8 ─────────────────────────────────────────── -->
+  <div class="bg-brand-dark text-white text-xs font-semibold tracking-widest uppercase px-6 py-3 sticky top-[88px] z-40">Component 8 — TestimonialWithList</div>
+  <TestimonialWithList
+    heading="Why General Agencies Fail"
+    headingItalic="Specialized Practices"
+    quote="PPC Dentist didn't just run our ads — they built a patient acquisition system that speaks the language of high-end cosmetic dentistry. Our case acceptance rate has never been higher."
+    authorName="Dr. David Wank"
+    authorTitle="Founder, Short Hills Dental"
+    items={[
+      { title: "The \"One-Size\" Trap", body: "Generalists use the same funnel for a pizza shop as they do for an Implant Specialist. We build around clinical nuance." },
+      { title: "Authority Optimization", body: "We don't just optimize for SEO; we optimize for trust. Our content is written to impress colleagues and patients alike." },
+    ]}
+  />
+
+  <!-- ─── Component 9 ─────────────────────────────────────────── -->
+  <div class="bg-brand-dark text-white text-xs font-semibold tracking-widest uppercase px-6 py-3 sticky top-[88px] z-40">Component 9 — BioWithStats</div>
+  <BioWithStats
+    badge="Founder & CEO, Short Hills Design LLC"
+    heading="Meet Dr. David Wank"
+    paragraphs={[
+      "As a practicing general dentist with a DMD from Harvard, and the founder and COO of Short Hills Design and PPCDentist, LLC, Dr. David Wank combines the skills of a dentist with the mind of a marketer like nobody else can.",
+      "Dr. Wank holds his Google Analytics IQ, Google Analytics 4, and Google Ads Search Certifications — and has spent years helping dental practices grow through data-driven digital marketing.",
+    ]}
+    credentials={["DMD, Harvard", "Google Ads Certified", "GA4 Certified", "HIPAA Compliant"]}
+    cta={{ label: "Get on the Phone With Him", href: "/contact" }}
+    stats={[
+      { value: "5–10", label: "New Patients/Month", color: "red" },
+      { value: "60", label: "Days or Fewer" },
+      { value: "100%", label: "HIPAA Compliant", color: "teal" },
+      { value: "DMD", label: "Harvard Trained", color: "teal" },
+    ]}
+    quote="You wouldn't let a marketer perform your root canal. Why let one run your dental marketing?"
+    quoteAuthor="Dr. David Wank, DMD"
+  />
+
+  <!-- ─── Component 10 ────────────────────────────────────────── -->
+  <div class="bg-brand-dark text-white text-xs font-semibold tracking-widest uppercase px-6 py-3 sticky top-[88px] z-40">Component 10 — ComplianceCard</div>
+  <ComplianceCard
+    heading="Conformance Status"
+    body="The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA."
+    calloutTitle="Target Compliance: WCAG 2.1 AA"
+    calloutBody="PPC Dentist is partially conformant with WCAG 2.1 level AA. Partially conformant means that some parts of the content do not yet fully conform to the accessibility standard as we undergo continuous clinical-grade updates."
+  />
+
+  <!-- ─── Component 11 ────────────────────────────────────────── -->
+  <div class="bg-brand-dark text-white text-xs font-semibold tracking-widest uppercase px-6 py-3 sticky top-[88px] z-40">Component 11 — ThreePillarColumns</div>
+  <ThreePillarColumns
+    badge="The Triple Pillar"
+    heading="Educate, Build Authority, Build Trust"
+    pillars={[
+      { title: "Clinical Education", body: "We don't sell treatments; we educate patients on clinical outcomes. By providing high-value dental insights via email, we position you as the only logical choice." },
+      { title: "Implicit Authority", body: "Our email campaigns utilize medical-journal aesthetics. When your communication feels like a curated resource rather than an ad, your authority scales instantly." },
+      { title: "Patient Trust", body: "Trust is built in the inbox, not the search engine. By nurturing leads over 7–14 days, we ensure they are 100% committed before they ever call your front desk." },
+    ]}
+  />
+
+  <!-- ─── Component 12 ────────────────────────────────────────── -->
+  <div class="bg-brand-dark text-white text-xs font-semibold tracking-widest uppercase px-6 py-3 sticky top-[88px] z-40">Component 12 — PricingWithQuote</div>
+  <PricingWithQuote
+    badge="Transparent Investment"
+    heading="Clinical Excellence, Predictable Costs"
+    body="We believe in a partnership model. No hidden percentages of ad spend — just a flat, transparent fee structure designed for your practice's growth."
+    lineItems={[
+      { label: "Strategic Setup", sublabel: "One-Time Clinical Integration", price: "$2,500" },
+      { label: "Management Fee", sublabel: "Affordable Monthly Optimization", price: "$950/mo" },
+    ]}
+    cta={{ label: "Secure Your Territory", href: "/contact" }}
+    quote="Our Invisalign volume increased by 40% in three months without increasing our overall ad spend. The difference is the lead quality."
+    authorName="Dr. Julian Sterling"
+    authorTitle="Sterling Dental Specialists"
+  />
+
+  <!-- ─── Component 13 ────────────────────────────────────────── -->
+  <div class="bg-brand-dark text-white text-xs font-semibold tracking-widest uppercase px-6 py-3 sticky top-[88px] z-40">Component 13 — PricingCards</div>
+  <PricingCards
+    heading="Transparent Clinical Pricing"
+    subheading="No hidden fees. Professional security infrastructure for modern dental practices."
+    pricing={{
+      price: "$850",
+      period: "/year",
+      name: "Standard Secure Package",
+      features: [
+        "Up to 2 Secure HIPAA-Compliant Forms",
+        "Encrypted Data Storage & BAA Agreement",
+        "*Special Offer: 2 Forms Converted for FREE*",
+      ],
+      note: "A one-time setup fee of $149 applies to all new accounts.",
+      accentColor: "teal",
+    }}
+    addon={{
+      title: "Enterprise Dental Hosting",
+      body: "We provide enterprise-level WordPress hosting specifically architected for dental practices. Fast, secure, and fully managed.",
+      footnote: "HIPAA Compliant Infrastructure • 99.9% Uptime Guarantee",
+      cta: { label: "Learn More", href: "/contact" },
+    }}
+  />
+
+  <!-- ─── Component 14 ────────────────────────────────────────── -->
+  <div class="bg-brand-dark text-white text-xs font-semibold tracking-widest uppercase px-6 py-3 sticky top-[88px] z-40">Component 14 — ServiceCards</div>
+  <ServiceCards
+    badge="What We Do"
+    heading="Everything Your Practice Needs to Grow"
+    cards={[
+      { title: "PPC Management", body: "Google Ads campaigns built for dentists. No fluff, no guessing — just new patients.", link: { label: "Get started", href: "/contact" }, color: "red" },
+      { title: "HIPAA Call Tracking", body: "Know which efforts drive real appointments — without compromising patient privacy.", link: { label: "Learn more", href: "/hipaa-compliant-call-tracking" }, color: "teal" },
+      { title: "Practice Health Guides", body: "Email-based lead generation that educates, builds trust, and converts — without discounts.", link: { label: "Learn more", href: "/practice-health-guides" }, color: "teal-light" },
+    ]}
+  />
+
+</Layout>
