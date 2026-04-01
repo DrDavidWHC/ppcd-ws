@@ -4,16 +4,33 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="About" description="Dr. David Wank, DMD — Harvard-trained dentist, Google Ads certified, and founder of PPC Dentist and Short Hills Design LLC.">
 
   <!-- PAGE HERO -->
-  <section class="bg-brand-slate py-16 lg:py-20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <p class="text-brand-teal text-xs font-semibold tracking-widest uppercase mb-3">Who We Are</p>
-      <h1 class="font-display text-4xl lg:text-5xl font-800 text-white">About PPC Dentist</h1>
+  <section class="bg-gray-50 py-16 lg:py-24">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <span class="inline-flex items-center bg-brand-teal/10 text-brand-teal text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-6">Who We Are</span>
+          <h1 class="font-display text-5xl lg:text-6xl font-semibold text-brand-dark leading-tight mb-6">
+            About<br /><em class="font-display italic font-normal">PPC Dentist.</em>
+          </h1>
+          <p class="text-gray-500 text-base leading-relaxed mb-8 max-w-md">
+            A Harvard-trained DMD who combines the clinical mind of a dentist with the precision of a performance marketer. We don't guess — we measure.
+          </p>
+          <a href="/contact" class="inline-flex items-center gap-2 bg-brand-slate hover:bg-brand-dark text-white font-semibold text-sm px-6 py-3 rounded-md transition-colors">
+            Work With Us &rarr;
+          </a>
+        </div>
+        <div class="relative">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-200">
+            <img src="/hero-about.jpg" alt="Dr. David Wank, DMD" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- CONTENT -->
   <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
         <div>
