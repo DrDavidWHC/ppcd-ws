@@ -107,26 +107,36 @@ const {
       <slot />
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-gray-50">
-      <div class="max-w-5xl mx-auto px-6 lg:px-8">
-
-      <!-- CTA Card -->
-      <div class="pt-16 pb-8">
-        <div class="bg-brand-slate rounded-2xl px-8 py-16 text-center" style="background: linear-gradient(135deg, #0f2540 0%, #1e3a5f 100%);">
-          <h2 class="font-display text-4xl md:text-5xl text-white font-semibold leading-tight mb-4">
-            Ready to Grow Your<br /><em class="font-display italic font-normal">Practice?</em>
-          </h2>
-          <p class="text-white/60 text-base md:text-lg max-w-xl mx-auto mb-10">
-            Before you spend another dime on marketing, get on a complimentary call with Dr. David Wank first so you can avoid wasting thousands of dollars on efforts that don't drive revenue.
-          </p>
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="/contact" class="bg-brand-teal hover:opacity-90 text-white font-semibold text-sm px-7 py-3.5 rounded-md transition-opacity">
-              Book Now
-            </a>
+    <!-- PRE-FOOTER CTA -->
+    <section class="bg-slate-500 py-16 px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto">
+        <div class="bg-slate-50 border-t-4 border-t-brand-red rounded-2xl px-8 md:px-12 py-12 md:py-14 shadow-xl">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+            <div class="max-w-lg">
+              <p class="text-brand-red text-xs font-semibold tracking-widest uppercase mb-3">Not Sure Where to Start?</p>
+              <h2 class="font-display text-2xl md:text-3xl text-brand-dark font-semibold leading-tight mb-3">
+                90-Day Traffic-vs-<em class="font-display italic font-normal">Messaging Study</em>
+              </h2>
+              <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+                You wouldn't prep crowns on a patient without a comprehensive exam and films, and you shouldn't start a marketing campaign without similarly diagnosing the problem.
+              </p>
+            </div>
+            <div class="flex flex-col gap-3 shrink-0">
+              <a href="/traffic-vs-messaging-audit" class="inline-flex items-center justify-center bg-brand-red hover:bg-red-700 text-white font-semibold text-sm px-7 py-3.5 rounded-md transition-colors whitespace-nowrap">
+                Learn More
+              </a>
+              <a href="/contact" class="inline-flex items-center justify-center border border-brand-slate text-brand-slate hover:bg-brand-slate hover:text-white font-semibold text-sm px-7 py-3.5 rounded-md transition-colors whitespace-nowrap">
+                Free Consultation
+              </a>
+            </div>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-50">
+      <div class="max-w-5xl mx-auto px-6 lg:px-8">
 
       <!-- Footer columns -->
       <div class="py-14">

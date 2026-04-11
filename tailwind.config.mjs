@@ -9,6 +9,7 @@ export default {
           red:    '#e8294a',
           teal:   '#2ab8b8',
           lime:   '#8dc63f',
+          blue:   '#6272a4',
           dark:   '#111111',
         },
       },

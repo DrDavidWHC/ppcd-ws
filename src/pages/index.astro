@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import NumberedBento from '../components/sections/NumberedBento.astro';
 ---
 <Layout title="Lead Generation You Can Actually Trust" description="We help dental practices get 5–10 new patients per month using HIPAA-compliant PPC, call tracking, and education-based drip marketing.">
 
@@ -60,41 +61,43 @@ import Layout from '../layouts/Layout.astro';
           <a href="/hipaa-compliant-call-tracking" class="mt-5 inline-block text-brand-teal text-sm font-semibold hover:text-teal-700 transition-colors">Learn more →</a>
         </div>
 
-        <div class="bg-white rounded-xl p-7 border border-gray-100 border-t-4 border-t-brand-lime shadow-sm hover:shadow-md transition-shadow">
-          <div class="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center mb-5">
-            <svg class="w-5 h-5 text-brand-lime" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <div class="bg-white rounded-xl p-7 border border-gray-100 border-t-4 border-t-brand-blue shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
           </div>
           <h3 class="font-display text-lg font-700 text-brand-dark mb-2">Lead Generation for Invisalign, Implants and Aligners</h3>
           <p class="text-gray-500 text-sm leading-relaxed">Our "Practice Health Guides" is an email-based lead generation approach that educates, builds trust, and converts — without the pressure tactics used by many other agencies.</p>
-          <a href="/practice-health-guides" class="mt-5 inline-block text-brand-lime text-sm font-semibold hover:text-green-700 transition-colors">Learn more →</a>
+          <a href="/practice-health-guides" class="mt-5 inline-block text-brand-blue text-sm font-semibold hover:opacity-70 transition-opacity">Learn more →</a>
         </div>
 
-        <div class="bg-white rounded-xl p-7 border border-gray-100 border-t-4 border-t-brand-red shadow-sm hover:shadow-md transition-shadow">
-          <div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center mb-5">
-            <svg class="w-5 h-5 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <div class="bg-white rounded-xl p-7 border border-gray-100 border-t-4 border-t-brand-lime shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-brand-lime" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
             </svg>
           </div>
           <h3 class="font-display text-lg font-700 text-brand-dark mb-2">PPC Management</h3>
           <p class="text-gray-500 text-sm leading-relaxed">Google Ads campaigns built for dentists. No fluff, no guessing — just new patients.</p>
-          <a href="/contact" class="mt-5 inline-block text-brand-red text-sm font-semibold hover:text-red-700 transition-colors">Learn more →</a>
+          <a href="/contact" class="mt-5 inline-block text-brand-lime text-sm font-semibold hover:text-green-700 transition-colors">Learn more →</a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- NOT SURE WHERE TO START -->
-  <section class="bg-white py-16 lg:py-20">
-    <div class="max-w-5xl mx-auto px-6 lg:px-8">
-      <p class="text-brand-slate text-xs font-semibold tracking-widest uppercase mb-3 text-center">Not Sure Where to Start?</p>
-      <h2 class="font-display text-3xl lg:text-4xl font-700 text-brand-dark text-center mb-6">90-Day Traffic-vs-Messaging Study</h2>
-      <p class="text-gray-600 text-base leading-relaxed max-w-2xl mx-auto text-center">
-        You wouldn't prep crowns on a patient without a comprehensive exam and films, and you shouldn't start a marketing campaign without similarly diagnosing the problem.
-      </p>
-    </div>
-  </section>
+  <NumberedBento
+    heading="The Big Picture"
+    headingItalic="for Your Practice"
+    bg="bg-white"
+    headingSize="text-3xl lg:text-4xl"
+    centered
+    items={[
+      { title: "Tactical Myopia", body: "Most agencies sell 'clicks.' We build clinical authority. If your marketing doesn't mirror the sophistication of your surgery, you're losing high-value patients." },
+      { title: "The \"Commodity\" Trap", body: "Specialists aren't generalists. When an agency treats a periodontist like a local pizza shop, they destroy your perceived value.", featured: true, bullets: ["Zero Generic Templates", "Clinical Content Precision"] },
+      { title: "Metrics Without Meaning", body: "Traffic is vanity. Case acceptance is sanity. We track the journey from first impression to the surgical chair with forensic detail." },
+    ]}
+  />
 
 </Layout>
