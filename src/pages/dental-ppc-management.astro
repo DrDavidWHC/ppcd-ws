@@ -1,0 +1,187 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NumberedBento from '../components/sections/NumberedBento.astro';
+---
+<Layout title="Dental PPC Management" description="Google Ads management built exclusively for dental practices — specialists, high-volume practices, and multi-location groups. No generic templates.">
+
+  <!-- HERO -->
+  <section class="bg-gray-50 py-16 lg:py-24">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <span class="inline-flex items-center bg-brand-teal/10 text-brand-teal text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-6">Built for Dental Practices</span>
+          <h1 class="font-display text-5xl lg:text-6xl font-semibold text-brand-dark leading-tight mb-6">
+            Dental PPC<br />Management<br /><em class="font-display italic font-normal">That Actually Converts.</em>
+          </h1>
+          <p class="text-gray-500 text-base leading-relaxed mb-8 max-w-md">
+            Most agencies run the same Google Ads playbook for every client. We build campaigns around your specific procedures, case mix, and patient demographic — because a dental specialist is not a pizza shop.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="/contact" class="inline-flex items-center gap-2 bg-brand-slate hover:bg-brand-dark text-white font-semibold text-sm px-6 py-3 rounded-md transition-colors">
+              Get a Free Consultation &rarr;
+            </a>
+            <a href="/traffic-vs-messaging-audit" class="inline-flex items-center border border-brand-slate text-brand-slate hover:bg-brand-slate hover:text-white font-semibold text-sm px-6 py-3 rounded-md transition-colors">
+              Start with a Free Audit
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-200">
+            <img src="/g_operatory-ppcd.jpg" alt="Dental practice Google Ads management" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+        <div class="space-y-6 text-gray-600 leading-relaxed">
+          <p class="text-lg">Google Ads for dentists is not difficult — it's just rarely done right. The average dental PPC campaign wastes 30–50% of its budget on irrelevant traffic, generic ad copy, and landing pages that leak patient intent before the call ever happens.</p>
+          <p>We manage campaigns exclusively for dental practices. That means dental-specific keyword strategy, ad copy that matches patient psychology at each stage of decision-making, and bid management tied to the procedures you actually want to grow.</p>
+          <p>Every campaign is paired with HIPAA-compliant call tracking so you can see exactly which keywords, ads, and landing pages drove booked appointments — not just clicks.</p>
+
+          <div class="bg-gray-50 rounded-2xl p-7 border border-gray-100 space-y-4">
+            <h3 class="font-display text-lg font-700 text-brand-dark">What's Included</h3>
+            <ul class="space-y-3">
+              {[
+                'Full campaign build or restructure (search, call-only, remarketing)',
+                'Dental-specialty keyword research and negative keyword management',
+                'Ad copy and extensions written for patient decision stages',
+                'HIPAA-compliant call tracking integration',
+                'Google Analytics 4 setup and conversion tracking',
+                'Monthly reporting focused on booked appointments, not just clicks',
+                'Landing page audit and optimization recommendations',
+                'Budget pacing and bid strategy adjusted to your case goals',
+              ].map(item => (
+                <li class="flex items-start gap-3 text-sm">
+                  <svg class="w-4 h-4 text-brand-teal shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <a href="/contact" class="inline-flex items-center gap-2 bg-brand-red hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-full transition-colors text-sm">
+            Start Growing Your Practice
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-brand-slate rounded-2xl p-7 text-white">
+            <h3 class="font-display text-lg font-700 mb-3">Why Dental PPC Is Different</h3>
+            <p class="text-white/70 text-sm leading-relaxed mb-4">A patient searching "tooth pain" is not the same as a patient searching "All-on-4 implants near me." High-value procedures require patient education, trust signals, and messaging that mirrors the clinical sophistication of your practice — not the same ad copy your competitor's general agency is running.</p>
+            <ul class="space-y-2">
+              {[
+                'Procedure-level campaign segmentation',
+                'Specialist vs. general dentistry positioning',
+                'Geographic radius tuned to your case mix',
+              ].map(item => (
+                <li class="flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-brand-teal">
+                  <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+            <h3 class="font-display text-lg font-700 text-brand-dark mb-3">Who We Work With</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">We focus on practices where PPC can make a measurable difference — and where a clinically-informed strategy matters most.</p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              {[
+                'Dental specialists (oral surgery, periodontics, orthodontics, endodontics)',
+                'High-production general practices with premium services',
+                'Multi-location DSO groups',
+                'Practices launching new high-value procedures',
+              ].map(item => (
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-brand-teal mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERED BENTO: Why most dental PPC fails -->
+  <NumberedBento
+    heading="Why Most Dental PPC"
+    headingItalic="Fails — and How We Fix It"
+    bg="bg-gray-50"
+    headingSize="text-3xl lg:text-4xl"
+    items={[
+      {
+        title: "Generic Campaign Structure",
+        body: "Most agencies use one-size-fits-all keyword strategies that lump together procedures with wildly different patient intent, cost-per-acquisition, and sales cycle length. That's money out the window."
+      },
+      {
+        title: "Dental-Specific Expertise",
+        body: "We build separate campaigns for each procedure category, match bids to production value, and write ad copy that speaks to the psychology of a patient making a major treatment decision.",
+        featured: true,
+        bullets: ["Procedure-Level Segmentation", "Production-Weighted Bidding", "Clinical Authority Messaging"]
+      },
+      {
+        title: "No ROI Visibility",
+        body: "If your agency is reporting on clicks and impressions, they are not managing your marketing — they are managing your expectations. We track the journey from keyword to booked appointment."
+      },
+    ]}
+  />
+
+  <!-- HOW IT WORKS -->
+  <section class="bg-white py-16 lg:py-20">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8">
+      <p class="text-brand-slate text-xs font-semibold tracking-widest uppercase mb-3 text-center">The Process</p>
+      <h2 class="font-display text-3xl lg:text-4xl font-semibold text-brand-dark text-center mb-12">How We Get Started</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-brand-teal text-white font-display font-semibold text-lg flex items-center justify-center mx-auto mb-4">1</div>
+          <h3 class="font-display text-lg font-semibold text-brand-dark mb-2">Traffic vs. Messaging Audit</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Before we touch your campaigns, we diagnose whether you have a traffic problem, a messaging problem, or both. No wasted spend on guesswork.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-brand-red text-white font-display font-semibold text-lg flex items-center justify-center mx-auto mb-4">2</div>
+          <h3 class="font-display text-lg font-semibold text-brand-dark mb-2">Campaign Build or Restructure</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">We build your campaigns from scratch or restructure what you have — with proper procedure segmentation, keyword architecture, and conversion tracking in place before a dollar is spent.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-brand-slate text-white font-display font-semibold text-lg flex items-center justify-center mx-auto mb-4">3</div>
+          <h3 class="font-display text-lg font-semibold text-brand-dark mb-2">Ongoing Management & Reporting</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Monthly reporting you can actually read — tied to booked appointments, not vanity metrics. Dr. Wank reviews every account personally. No junior analysts, no offshore handoffs.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bg-brand-slate py-16 lg:py-20">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl lg:text-4xl font-semibold text-white mb-4">Ready to Stop Guessing<br /><em class="font-display italic font-normal">and Start Growing?</em></h2>
+      <p class="text-white/70 text-base leading-relaxed mb-8">Start with a free Traffic vs. Messaging Audit — we'll tell you exactly what's wrong before you spend a dollar more.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/traffic-vs-messaging-audit" class="inline-flex items-center bg-brand-red hover:bg-red-700 text-white font-semibold text-sm px-8 py-4 rounded-md transition-colors">
+          Get Your Free Audit &rarr;
+        </a>
+        <a href="/contact" class="inline-flex items-center border border-white/40 text-white hover:bg-white/10 font-semibold text-sm px-8 py-4 rounded-md transition-colors">
+          Book a Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

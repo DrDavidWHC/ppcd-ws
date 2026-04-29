@@ -62,15 +62,27 @@ const {
           <!-- Desktop nav (centered) -->
           <ul class="hidden lg:flex items-center gap-1 text-sm font-medium flex-1 justify-center">
             <li><a href="/about" class="text-gray-500 hover:text-brand-dark px-4 py-2 border-b-2 border-transparent hover:border-brand-slate transition-colors">About</a></li>
-            <li><a href="/hipaa-compliant-call-tracking" class="text-gray-500 hover:text-brand-dark px-4 py-2 border-b-2 border-transparent hover:border-brand-slate transition-colors">Call Tracking</a></li>
-            <li><a href="/hipaa-compliant-website-forms" class="text-gray-500 hover:text-brand-dark px-4 py-2 border-b-2 border-transparent hover:border-brand-slate transition-colors">Website Forms</a></li>
+            <!-- Services dropdown -->
+            <li class="relative group">
+              <button class="flex items-center gap-1 text-gray-500 hover:text-brand-dark px-4 py-2 border-b-2 border-transparent hover:border-brand-slate transition-colors cursor-pointer">
+                Services
+                <svg class="w-3.5 h-3.5 mt-0.5 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <ul class="absolute left-0 top-full mt-1 w-52 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 py-1">
+                <li><a href="/dental-ppc-management" class="block px-4 py-2.5 text-sm text-gray-600 hover:text-brand-dark hover:bg-gray-50 transition-colors">PPC Management</a></li>
+                <li><a href="/hipaa-compliant-call-tracking" class="block px-4 py-2.5 text-sm text-gray-600 hover:text-brand-dark hover:bg-gray-50 transition-colors">Call Tracking</a></li>
+                <li><a href="/hipaa-compliant-website-forms" class="block px-4 py-2.5 text-sm text-gray-600 hover:text-brand-dark hover:bg-gray-50 transition-colors">Website Forms</a></li>
+              </ul>
+            </li>
             <li><a href="/practice-health-guides" class="text-gray-500 hover:text-brand-dark px-4 py-2 border-b-2 border-transparent hover:border-brand-slate transition-colors">Practice Health Guides</a></li>
             <li><a href="/contact" class="text-gray-500 hover:text-brand-dark px-4 py-2 border-b-2 border-transparent hover:border-brand-slate transition-colors">Contact</a></li>
           </ul>
 
-          <!-- 90-Day Audit CTA -->
-          <a href="/contact" class="hidden sm:inline-flex items-center bg-brand-slate hover:bg-brand-dark text-white text-sm font-semibold px-5 py-2.5 rounded-md transition-colors ml-auto lg:ml-0">
-            90-Day Audit
+          <!-- 90-Day Study CTA -->
+          <a href="/90-day-audit" class="hidden sm:inline-flex items-center bg-brand-slate hover:bg-brand-dark text-white text-sm font-semibold px-5 py-2.5 rounded-md transition-colors ml-auto lg:ml-0">
+            90-Day Study
           </a>
 
           <!-- Mobile menu button -->
@@ -89,13 +101,25 @@ const {
       <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-6 pb-4">
         <ul class="flex flex-col gap-1 pt-3 text-sm font-medium">
           <li><a href="/about" class="block text-gray-500 hover:text-brand-dark py-2">About</a></li>
-          <li><a href="/hipaa-compliant-call-tracking" class="block text-gray-500 hover:text-brand-dark py-2">Call Tracking</a></li>
-          <li><a href="/hipaa-compliant-website-forms" class="block text-gray-500 hover:text-brand-dark py-2">Website Forms</a></li>
+          <!-- Services accordion -->
+          <li>
+            <button id="mobile-services-btn" class="flex items-center justify-between w-full text-gray-500 hover:text-brand-dark py-2">
+              Services
+              <svg id="mobile-services-icon" class="w-3.5 h-3.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <ul id="mobile-services-menu" class="hidden pl-4 flex-col gap-1">
+              <li><a href="/dental-ppc-management" class="block text-gray-500 hover:text-brand-dark py-2">PPC Management</a></li>
+              <li><a href="/hipaa-compliant-call-tracking" class="block text-gray-500 hover:text-brand-dark py-2">Call Tracking</a></li>
+              <li><a href="/hipaa-compliant-website-forms" class="block text-gray-500 hover:text-brand-dark py-2">Website Forms</a></li>
+            </ul>
+          </li>
           <li><a href="/practice-health-guides" class="block text-gray-500 hover:text-brand-dark py-2">Practice Health Guides</a></li>
           <li><a href="/contact" class="block text-gray-500 hover:text-brand-dark py-2">Contact</a></li>
           <li class="pt-2">
-            <a href="/contact" class="inline-flex items-center bg-brand-slate text-white text-sm font-semibold px-5 py-2.5 rounded-md">
-              90-Day Audit
+            <a href="/90-day-audit" class="inline-flex items-center bg-brand-slate text-white text-sm font-semibold px-5 py-2.5 rounded-md">
+              90-Day Study
             </a>
           </li>
         </ul>
@@ -122,7 +146,7 @@ const {
               </p>
             </div>
             <div class="flex flex-col gap-3 shrink-0">
-              <a href="/traffic-vs-messaging-audit" class="inline-flex items-center justify-center bg-brand-red hover:bg-red-700 text-white font-semibold text-sm px-7 py-3.5 rounded-md transition-colors whitespace-nowrap">
+              <a href="/90-day-audit" class="inline-flex items-center justify-center bg-brand-red hover:bg-red-700 text-white font-semibold text-sm px-7 py-3.5 rounded-md transition-colors whitespace-nowrap">
                 Learn More
               </a>
               <a href="/contact" class="inline-flex items-center justify-center border border-brand-slate text-brand-slate hover:bg-brand-slate hover:text-white font-semibold text-sm px-7 py-3.5 rounded-md transition-colors whitespace-nowrap">
@@ -163,7 +187,7 @@ const {
               <li><a href="/hipaa-compliant-call-tracking" class="hover:text-brand-slate transition-colors">HIPAA Call Tracking</a></li>
               <li><a href="/hipaa-compliant-website-forms" class="hover:text-brand-slate transition-colors">Website Forms</a></li>
               <li><a href="/practice-health-guides" class="hover:text-brand-slate transition-colors">Practice Health Guides</a></li>
-              <li><a href="/contact" class="hover:text-brand-slate transition-colors">PPC Management</a></li>
+              <li><a href="/dental-ppc-management" class="hover:text-brand-slate transition-colors">PPC Management</a></li>
             </ul>
           </div>
 
@@ -210,6 +234,15 @@ const {
         menu?.classList.toggle('hidden');
         iconOpen?.classList.toggle('hidden');
         iconClose?.classList.toggle('hidden');
+      });
+
+      const servicesBtn = document.getElementById('mobile-services-btn');
+      const servicesMenu = document.getElementById('mobile-services-menu');
+      const servicesIcon = document.getElementById('mobile-services-icon');
+      servicesBtn?.addEventListener('click', () => {
+        servicesMenu?.classList.toggle('hidden');
+        servicesMenu?.classList.toggle('flex');
+        servicesIcon?.classList.toggle('rotate-180');
       });
     </script>
   </body>
