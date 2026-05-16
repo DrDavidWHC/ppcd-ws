@@ -9,18 +9,18 @@ import Layout from '../layouts/Layout.astro';
         <div>
           <span class="inline-flex items-center bg-brand-teal/10 text-brand-teal text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-6">Education-Based Lead Generation</span>
           <h1 class="font-display text-5xl lg:text-6xl font-semibold text-brand-dark leading-tight mb-6">
-            Practice<br /><em class="font-display italic font-normal">Health Guides.</em>
+            Practice<br /><em class="font-display italic font-normal">Health Guides</em>
           </h1>
           <p class="text-gray-500 text-base leading-relaxed mb-8 max-w-md">
             Stop using a sledgehammer to bring in new patients. Educate, build trust, and convert — without discounts, gimmicks, or racing to the bottom on price.
           </p>
           <a href="/contact" class="inline-flex items-center gap-2 bg-brand-slate hover:bg-brand-dark text-white font-semibold text-sm px-6 py-3 rounded-md transition-colors">
-            Learn More &rarr;
+            Get in Touch &rarr;
           </a>
         </div>
         <div class="relative">
-          <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-200">
-            <img src="/hero-practice-health-guides.jpg" alt="Practice Health Guides" class="w-full h-full object-cover" />
+          <div class="rounded-2xl bg-gray-200 p-1.25">
+            <img src="/ppcd-screen.png" alt="Practice Health Guides" class="w-full h-auto rounded-xl" />
           </div>
         </div>
       </div>
@@ -28,20 +28,26 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <section class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8 space-y-16">
 
+      <!-- Row 1: Sledgehammer + Educate box -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <div class="space-y-6 text-gray-600 leading-relaxed">
           <h2 class="font-display text-2xl font-700 text-brand-dark">The Sledgehammer Method — And Why It Fails</h2>
           <p>Here's a familiar scenario: you spend $2,000/mo offering a $1,000 discount for Invisalign or dental implants via Google and Facebook Ads, and to nobody's surprise, you generate zero quality new patients.</p>
           <p>This is what we call the <strong class="text-brand-dark">Sledgehammer Method</strong> — asking people who have no familiarity with you to commit to spending a lot of money for a service. You're skipping the dating and going straight to the marriage proposal. In the real world, instant proposals rarely last as long-term relationships.</p>
+        </div>
 
-          <div class="bg-brand-slate rounded-2xl p-7 text-white">
-            <h3 class="font-display text-lg font-700 mb-3">Educate. Build Authority. Build Trust.</h3>
-            <p class="text-white/70 text-sm leading-relaxed">Practice Health Guides works with a straightforward approach: we customize a lead magnet (eBook) for your practice — such as "Top 5 Facts About Invisalign" or "The 5 Biggest Myths About Dental Implants" — and place an opt-in form on your website.</p>
-            <p class="text-white/70 text-sm leading-relaxed mt-3">Once the user opts in, they receive a series of targeted emails designed to educate them about the topic, establish you as an experienced authority, and build trust — long before they ever walk through your door.</p>
-          </div>
+        <div class="bg-brand-slate rounded-2xl p-7 text-white">
+          <h3 class="font-display text-lg font-700 mb-3">Educate. Build Authority. Build Trust.</h3>
+          <p class="text-white/70 text-sm leading-relaxed">Practice Health Guides works with a straightforward approach: we customize a lead magnet (eBook) for your practice — such as "Top 5 Facts About Invisalign" or "The 5 Biggest Myths About Dental Implants" — and place an opt-in form on your website.</p>
+          <p class="text-white/70 text-sm leading-relaxed mt-3">Once the user opts in, they receive a series of targeted emails designed to educate them about the topic, establish you as an experienced authority, and build trust — long before they ever walk through your door.</p>
+        </div>
+      </div>
 
+      <!-- Row 2: How It Works + Pricing -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="space-y-6 text-gray-600 leading-relaxed">
           <h3 class="font-display text-xl font-700 text-brand-dark">How It Works</h3>
           <ol class="space-y-4">
             {[
@@ -59,52 +65,26 @@ import Layout from '../layouts/Layout.astro';
               </li>
             ))}
           </ol>
-
-          <div class="bg-gray-50 rounded-2xl p-7 border border-gray-100">
-            <h3 class="font-display text-lg font-700 text-brand-dark mb-2">Pricing</h3>
-            <p class="text-sm text-gray-600">There is a one-time initial setup fee to customize the eBook and the emails to your branding, and an affordable low monthly fee for the service.</p>
-            <p class="text-sm text-gray-600 mt-2">Contact us to learn more about current pricing.</p>
-          </div>
         </div>
 
-        <!-- Opt-in form -->
-        <div class="lg:sticky lg:top-24">
-          <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-            <p class="text-brand-red text-xs font-semibold tracking-widest uppercase mb-2">Get Early Access</p>
-            <h3 class="font-display text-2xl font-700 text-brand-dark mb-2">Learn More About Practice Health Guides</h3>
-            <p class="text-sm text-gray-500 mb-6">Leave your info and we'll reach out to explain how PHG can work for your practice.</p>
-
-            <form
-              action={`mailto:david@ppcdentist.com?subject=Practice Health Guides Inquiry`}
-              method="get"
-              enctype="text/plain"
-              class="space-y-4"
-            >
-              <div>
-                <label for="phg-name" class="block text-xs font-semibold text-gray-700 mb-1.5">Your Name</label>
-                <input type="text" id="phg-name" name="name" required placeholder="Dr. Jane Smith" class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
-              </div>
-              <div>
-                <label for="phg-email" class="block text-xs font-semibold text-gray-700 mb-1.5">Email Address</label>
-                <input type="email" id="phg-email" name="email" required placeholder="jane@yourpractice.com" class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
-              </div>
-              <div>
-                <label for="phg-practice" class="block text-xs font-semibold text-gray-700 mb-1.5">Practice Name</label>
-                <input type="text" id="phg-practice" name="practice" placeholder="Smith Family Dentistry" class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
-              </div>
-              <button type="submit" class="w-full bg-brand-red hover:bg-red-600 text-white font-semibold py-3 rounded-full transition-colors text-sm">
-                Send Me More Info
-              </button>
-              <p class="text-xs text-gray-400 text-center">No spam. No PHI collected. We'll just reach out to chat.</p>
-            </form>
-          </div>
-
-          <div class="mt-6 text-center text-sm text-gray-500">
-            Questions? Call us at <a href="tel:9734009004" class="text-brand-red font-semibold hover:text-red-700">(973) 400-9004</a>
-          </div>
+        <div class="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+          <h3 class="font-display text-lg font-700 text-brand-dark mb-2">Pricing</h3>
+          <p class="text-sm text-gray-600">There is a one-time initial setup fee to customize the eBook and the emails to your branding, and an affordable low monthly fee for the service.</p>
+          <p class="text-sm text-gray-600 mt-2">Contact us to learn more about current pricing.</p>
         </div>
-
       </div>
+
+      <!-- Row 3: CTA -->
+      <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 max-w-xl mx-auto text-center">
+        <p class="text-brand-red text-xs font-semibold tracking-widest uppercase mb-2">Get Early Access</p>
+        <h3 class="font-display text-2xl font-700 text-brand-dark mb-2">Learn More About Practice Health Guides</h3>
+        <p class="text-sm text-gray-500 mb-6">Get in touch and we'll reach out to explain how PHG can work for your practice, and to see if it makes sense for you to join the second test cohort.</p>
+        <a href="/contact" class="inline-flex w-full items-center justify-center bg-brand-red hover:bg-red-600 text-white font-semibold py-3 rounded-full transition-colors text-sm">
+          Get in Touch
+        </a>
+        <p class="mt-4 text-sm text-gray-500">Questions? Call us at <a href="tel:9734009004" class="text-brand-red font-semibold hover:text-red-700">(973) 400-9004</a></p>
+      </div>
+
     </div>
   </section>
 

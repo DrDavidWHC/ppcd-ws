@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="max-w-5xl mx-auto px-6 lg:px-8">
       <span class="inline-flex items-center bg-brand-teal/10 text-brand-teal text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-6">Let's Talk</span>
       <h1 class="font-display text-5xl lg:text-6xl font-semibold text-brand-dark leading-tight">
-        Get in<br /><em class="font-display italic font-normal">Touch.</em>
+        Get in<br /><em class="font-display italic font-normal">Touch</em>
       </h1>
     </div>
   </section>
@@ -41,33 +41,30 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div>
                 <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-1">Email</div>
-                <a href="mailto:david@ppcdentist.com" class="text-brand-dark font-semibold hover:text-brand-red transition-colors">david@ppcdentist.com</a>
+                <a href="mailto:david@ppcdentist.com" class="text-brand-dark font-semibold hover:text-brand-red transition-colors">davidw[at]ppcdentist.com</a>
               </div>
             </div>
           </div>
 
           <div class="mt-10 bg-gray-50 rounded-2xl p-7 border border-gray-100">
             <p class="text-sm text-gray-600 leading-relaxed italic">"I take every call personally. When you call PPC Dentist, you're talking to a dentist who understands your practice — not a salesperson reading from a script."</p>
-            <p class="text-xs text-gray-400 mt-3 font-semibold">— Dr. David Wank, DMD</p>
+            <p class="text-xs text-gray-400 mt-3 font-semibold">— Dr. David Wank</p>
           </div>
         </div>
 
         <!-- Right: Form -->
         <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-          <form
-            action={`mailto:david@ppcdentist.com?subject=New Contact Form Submission`}
-            method="get"
-            enctype="text/plain"
-            class="space-y-5"
-          >
+          <form id="contact-form" action="https://formspree.io/f/xlgzqoae" method="POST" class="space-y-5" novalidate>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label for="name" class="block text-xs font-semibold text-gray-700 mb-1.5">Your Name *</label>
-                <input type="text" id="name" name="name" required placeholder="Dr. Jane Smith" class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-slate focus:border-transparent bg-white" />
+                <input type="text" id="name" name="name" placeholder="Dr. Jane Smith" required aria-describedby="name-error" class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-slate focus:border-transparent bg-white" />
+                <p id="name-error" class="text-xs text-red-500 mt-1 hidden" role="alert"></p>
               </div>
               <div>
                 <label for="email" class="block text-xs font-semibold text-gray-700 mb-1.5">Email Address *</label>
-                <input type="email" id="email" name="email" required placeholder="jane@yourpractice.com" class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-slate focus:border-transparent bg-white" />
+                <input type="email" id="email" name="email" placeholder="jane@yourpractice.com" required aria-describedby="email-error" class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-slate focus:border-transparent bg-white" />
+                <p id="email-error" class="text-xs text-red-500 mt-1 hidden" role="alert"></p>
               </div>
             </div>
             <div>
@@ -76,17 +73,33 @@ import Layout from '../layouts/Layout.astro';
             </div>
             <div>
               <label for="phone" class="block text-xs font-semibold text-gray-700 mb-1.5">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-slate focus:border-transparent bg-white" />
+              <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" aria-describedby="phone-error" class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-slate focus:border-transparent bg-white" />
+              <p id="phone-error" class="text-xs text-red-500 mt-1 hidden" role="alert"></p>
             </div>
             <div>
-              <label for="message" class="block text-xs font-semibold text-gray-700 mb-1.5">How Can We Help?</label>
-              <textarea id="message" name="message" rows="4" placeholder="Tell us a bit about your practice and what you're looking to achieve..." class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-slate focus:border-transparent bg-white resize-none"></textarea>
+              <label for="message" class="block text-xs font-semibold text-gray-700 mb-1.5">How Can We Help? *</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us a bit about your practice and what you're looking to achieve..." required aria-describedby="message-error" class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-slate focus:border-transparent bg-white resize-none"></textarea>
+              <p id="message-error" class="text-xs text-red-500 mt-1 hidden" role="alert"></p>
             </div>
-            <button type="submit" class="w-full bg-brand-red hover:bg-red-600 text-white font-semibold py-3 rounded-full transition-colors text-sm">
+            <button type="submit" id="submit-btn" class="w-full bg-brand-red hover:bg-red-600 text-white font-semibold py-3 rounded-full transition-colors text-sm">
               Send Message
             </button>
             <p class="text-xs text-gray-400 text-center">We respond within 1 business day.</p>
           </form>
+
+          <!-- Success state -->
+          <div id="form-success" class="hidden text-center py-8">
+            <div class="w-14 h-14 rounded-full bg-teal-50 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-brand-dark mb-2">Message Received</h3>
+            <p class="text-sm text-gray-500">We'll be in touch within 1 business day.</p>
+          </div>
+
+          <!-- Error state -->
+          <p id="form-error" class="hidden text-sm text-red-500 text-center mt-3">Something went wrong. Please try again or call us at <a href="tel:9734009004" class="underline">(973) 400-9004</a>.</p>
         </div>
 
       </div>
@@ -94,3 +107,110 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
 </Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const successEl = document.getElementById('form-success') as HTMLElement;
+  const errorEl = document.getElementById('form-error') as HTMLElement;
+
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let submitting = false;
+
+  function showFieldError(id: string, msg: string) {
+    const el = document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement;
+    const hint = document.getElementById(`${id}-error`) as HTMLElement;
+    el.classList.add('border-red-400', 'ring-1', 'ring-red-400');
+    el.classList.remove('border-gray-200');
+    el.setAttribute('aria-invalid', 'true');
+    hint.textContent = msg;
+    hint.classList.remove('hidden');
+  }
+
+  function clearFieldError(id: string) {
+    const el = document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement;
+    const hint = document.getElementById(`${id}-error`) as HTMLElement;
+    el.classList.remove('border-red-400', 'ring-1', 'ring-red-400');
+    el.classList.add('border-gray-200');
+    el.removeAttribute('aria-invalid');
+    hint.textContent = '';
+    hint.classList.add('hidden');
+  }
+
+  function validateField(id: string): boolean {
+    const el = document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement;
+    const val = el.value.trim();
+
+    if (id === 'name') {
+      if (!val) { showFieldError('name', 'Please enter your name.'); return false; }
+    }
+    if (id === 'email') {
+      if (!val) { showFieldError('email', 'Please enter your email address.'); return false; }
+      if (!emailRe.test(val)) { showFieldError('email', 'Please enter a valid email address.'); return false; }
+    }
+    if (id === 'phone' && val) {
+      const digits = val.replace(/\D/g, '');
+      if (digits.length < 10 || digits.length > 11) {
+        showFieldError('phone', 'Please enter a valid 10-digit phone number.');
+        return false;
+      }
+    }
+    if (id === 'message') {
+      if (!val) { showFieldError('message', 'Please tell us how we can help.'); return false; }
+    }
+
+    clearFieldError(id);
+    return true;
+  }
+
+  function validate(): boolean {
+    const results = ['name', 'email', 'phone', 'message'].map(validateField);
+    return results.every(Boolean);
+  }
+
+  (['name', 'email', 'phone', 'message'] as const).forEach((id) => {
+    const el = document.getElementById(id);
+    el?.addEventListener('input', () => validateField(id));
+    el?.addEventListener('blur', () => validateField(id));
+  });
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (submitting) return;
+
+    if (!validate()) {
+      const firstInvalid = form.querySelector('[aria-invalid="true"]') as HTMLElement | null;
+      firstInvalid?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      firstInvalid?.focus({ preventScroll: true });
+      return;
+    }
+
+    submitting = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Processing…';
+    errorEl.classList.add('hidden');
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        form.classList.add('hidden');
+        successEl.classList.remove('hidden');
+        successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        throw new Error();
+      }
+    } catch {
+      errorEl.classList.remove('hidden');
+      errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    } finally {
+      submitting = false;
+    }
+  });
+</script>
