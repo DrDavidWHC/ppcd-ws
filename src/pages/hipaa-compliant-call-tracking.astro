@@ -19,9 +19,11 @@ import Layout from '../layouts/Layout.astro';
           </a>
         </div>
         <div class="relative">
-          <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-200">
-            <img src="/hero-call-tracking.jpg" alt="HIPAA-compliant call tracking" class="w-full h-full object-cover" />
-          </div>
+          <script src="https://fast.wistia.com/player.js" async is:inline></script>
+          <script src="https://fast.wistia.com/embed/2tbv9vzq9a.js" async type="module" is:inline></script>
+          <style is:inline>wistia-player[media-id='2tbv9vzq9a']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/2tbv9vzq9a/swatch'); display: block; filter: blur(5px); padding-top:58.33%; }</style>
+          <wistia-player media-id="2tbv9vzq9a" aspect="1.7142857142857142" class="rounded-2xl overflow-hidden shadow-md"></wistia-player>
+          <p class="mt-3 text-xs text-gray-400 leading-relaxed">HIPAA-Compliant call tracking is the best and most affordable way to tie your marketing efforts to booked new patients and revenue.</p>
         </div>
       </div>
     </div>
