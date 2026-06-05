@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import "@fontsource-variable/dm-sans";
+@import "@fontsource-variable/dm-sans/wght-italic.css";
+@import "@fontsource/lora/600.css";
+@import "@fontsource/lora/700.css";
 
 @theme {
   --color-brand-slate: #1e3a5f;
