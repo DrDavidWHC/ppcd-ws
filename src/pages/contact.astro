@@ -9,6 +9,7 @@ import Layout from '../layouts/Layout.astro';
       <h1 class="font-display text-5xl lg:text-6xl font-semibold text-brand-dark leading-tight">
         Get in<br /><em class="font-display italic font-normal">Touch</em>
       </h1>
+      <p class="text-gray-500 text-base leading-relaxed mt-6 max-w-md">Setup a free consultation with Dr. Wank, contact us or call us.</p>
     </div>
   </section>
 
@@ -19,7 +20,7 @@ import Layout from '../layouts/Layout.astro';
         <!-- Left: Info -->
         <div>
           <h2 class="font-display text-2xl font-700 text-brand-dark mb-4">Schedule a Free Consultation</h2>
-          <p class="text-gray-600 leading-relaxed mb-8">Submit your information below and we will be in touch to schedule your complimentary consultation with Dr. Wank.</p>
+          <p class="text-gray-600 leading-relaxed mb-8">Get in touch with us to ask questions or schedule a complimentary consultation with Dr. Wank.</p>
 
           <div class="space-y-5">
             <div class="flex items-start gap-4">
@@ -53,7 +54,9 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <!-- Right: Form -->
-        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+        <div>
+          <h2 class="font-display text-2xl font-700 text-brand-dark mb-4">Contact Form</h2>
+          <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
           <form id="contact-form" action="https://formspree.io/f/xlgzqoae" method="POST" class="space-y-5" novalidate>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -90,6 +93,7 @@ import Layout from '../layouts/Layout.astro';
 
           <!-- Error state -->
           <p id="form-error" class="hidden text-sm text-red-500 text-center mt-3">Something went wrong. Please try again or call us at <a href="tel:9734009004" class="underline">(973) 400-9004</a>.</p>
+        </div>
         </div>
 
       </div>
